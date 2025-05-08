@@ -1,0 +1,18 @@
+<% hasilSearch.forEach(src => { %>               
+    <div class="item">
+        <div class="foto">
+            <img src="/gambar/uploads/<%= src.gambar %>" alt="">
+        </div>
+        <div class="data">
+            <label for="nama"><%= src.nama %></label>
+            <label for="nohp"><%= src.nohp %></label>
+        </div>
+        <div class="utils">
+            <div class="edit" data-id="<%= src.id %>">
+                <i class="fa-solid fa-pencil"></i>
+            </div>
+            <a href="/hapusData/<%= src.id %>"><i class="fa-solid fa-trash"></i></a>
+        </div>
+    </div>
+    <% }) %>
+    <script src="/js/dashboard.js"></script>

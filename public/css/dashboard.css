@@ -1,0 +1,325 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    /* background-color: red; */
+    background-image: url('../gambar/asset/pattern.png');
+    position: relative;
+}
+
+.bg_blur{
+    z-index: 1;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 9px );
+-webkit-backdrop-filter: blur( 9px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+#hide{
+    display: none;
+}
+.kontener{
+    width: 100vw;
+    height: 100vh;
+    /* background-color: red; */
+    display: grid;
+    grid-template-rows: 100px 50px auto;
+}
+.logo{
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.logo img{
+    height: 100%;
+}
+.bar{
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.bar button{
+    border-radius: 50px;
+    border: none;
+    background-color: rgb(0, 85, 255);
+}
+.bar i{
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    margin: 10px;
+}
+.bar input{
+    width: 800px;
+    height: 50px;
+    border: none;
+    border-radius: 20px;
+    padding-left: 20px;
+    filter: drop-shadow(0 0 0.75rem black);
+}
+.bar a{
+    padding: 4px;
+    background-color: green;
+    border: none;
+    border-radius: 50px;
+}
+.content{
+    /* background-color: brown; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.area{
+    width: 80%;
+    height: 90%;
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+    background: rgba( 255, 255, 255, 0.3 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 3.5px );
+-webkit-backdrop-filter: blur( 3.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+padding: 20px;
+box-sizing: border-box;
+display: grid;
+grid-template-columns: repeat(2,1fr);
+row-gap: 10px;
+overflow-y: scroll;
+}
+.area::-webkit-scrollbar {
+    width: 10px; /* Lebar scrollbar */
+}
+
+.area::-webkit-scrollbar-thumb {
+    background-color: rgb(53, 120, 254); /* Warna thumb (bagian yang digeser) */
+    border-radius: 5px; /* Bentuk thumb */
+}
+
+.area::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Warna track (latar belakang scrollbar) */
+}
+.notFound{
+    width: 1177px;
+    height: 100%;
+    /* background-color: #75C890; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item{
+    width: 80%;
+    height: 60px;
+    background-color: white;
+    border-radius: 50px;
+    display: grid;
+    grid-template-columns: 60px auto 100px;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+.foto{
+    /* background-color: red; */
+    border-radius: 50px;
+    overflow: hidden;
+}
+.foto img{
+    width: 100%;
+    height: 60px;
+    object-fit: fill;
+}
+.data{
+    /* background-color: blue; */
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    padding-left: 20px;
+    font-size: 20px;
+}
+.data > :nth-child(1){
+    /* background-color: red; */
+    font-weight: 800;
+}
+.data > :nth-child(2){
+    /* background-color: rgb(0, 255, 60); */
+}
+.utils{
+    /* background-color: green; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.fa-pencil{
+    padding: 15px;
+    background-color: #75C890;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+}
+.fa-trash{
+    padding: 15px;
+    background-color: #C87575;
+    border-radius: 50px;
+    color: white;
+}
+/* modal-------------------------------------- */
+.modal_tambah{
+    width: 60%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    position: absolute;
+    z-index: 2;
+    display: grid;
+    grid-template-rows: 30px auto;
+    border-radius: 20px;
+}
+.modal_edit{
+    width: 60%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    position: absolute;
+    z-index: 2;
+    display: grid;
+    grid-template-rows: 30px auto;
+    border-radius: 20px;
+}
+.tutup{
+    /* background-color: aqua; */
+    text-align: end;
+    display: flex;
+    padding-right: 20px;
+    align-items: end;
+    justify-content: end;
+    cursor: pointer;
+}
+.modal_tambah form{
+    /* background-color: blueviolet; */
+    display: grid;
+    grid-template-rows: auto 50px;
+}
+.modal_edit form{
+    /* background-color: blueviolet; */
+    display: grid;
+    grid-template-rows: auto 50px;
+}
+
+.isi{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+.kiri{
+    /* background-color: chocolate; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.kiri .foto_modal{
+    width: 200px;
+    height: 200px;
+    border: none;
+    border-radius: 100px;
+    overflow: hidden;
+}
+.foto_modal img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.kiri .foto_modal_edit{
+    width: 200px;
+    height: 200px;
+    border: none;
+    border-radius: 100px;
+    overflow: hidden;
+}
+.foto_modal_edit img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.kiri input{
+
+}
+.kanan{
+    /* background-color: cornflowerblue; */
+    padding-left: 20px;
+    padding-top: 50px;
+    padding-right: 50px;
+}
+.nama,
+.nohp,
+.email{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+:is(
+    .nama,
+    .nohp,
+    .email 
+) input{
+    height: 30px;
+    border-radius: 20px;
+    padding-left: 20px;
+}
+:is(
+    .nama,
+    .nohp,
+    .email 
+) label{
+    font-weight: 800;
+}
+.editnama,
+.editnohp,
+.editemail{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+:is(
+    .editnama,
+    .editnohp,
+    .editemail 
+) input{
+    height: 30px;
+    border-radius: 20px;
+    padding-left: 20px;
+}
+:is(
+    .editnama,
+    .editnohp,
+    .editemail 
+) label{
+    font-weight: 800;
+}
+.simpan{
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+.simpan button{
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: #8790E4;
+    color: white;
+}
