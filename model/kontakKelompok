@@ -1,0 +1,14 @@
+const mongoose = require('mongoose')
+//membuat Modal (collection / tabel baru)
+const kontakKelompok = mongoose.model('kontakKelompok',{
+    id_kontak: {
+        type: String,
+        required: true
+    },
+    id_kelompok: {
+        type: String,
+        required: true
+    }
+})
+
+module.exports = kontakKelompok

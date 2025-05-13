@@ -13,7 +13,7 @@ const bg_blur = $('.bg_blur')
 const modal_tambah = $('.modal_tambah')
 const modal_edit = $('.modal_edit')
 const tutup = $('.tutup i')
-
+const daftarKelompok = $('#daftar-kelompok');
 
 
 tambah.on('click', function(){
@@ -26,6 +26,7 @@ tutup.on('click',function(){
     bg_blur.attr('id', 'hide');
 modal_tambah.attr('id', 'hide');
 modal_edit.attr('id', 'hide');
+daftarKelompok.empty();
 })
 
 //ganti preview gambar
@@ -49,11 +50,14 @@ const uploadGambar = document.getElementById('upload-gambar');
     }
   });
 
+  //edit data--------------------------------------------------------
 const edit_button = $('.edit')
 const editnama = $('.editnama input')
 const editnohp = $('.editnohp input')
 const editemail = $('.editemail input')
+const editkelompok = $('.editkelompok label')
 const editgambar = $('.foto_modal_edit img')
+
 edit_button.on('click', function(){
     bg_blur.removeAttr('id');
     modal_edit.removeAttr('id');
@@ -65,15 +69,30 @@ edit_button.on('click', function(){
             id: id
             },
             success: function(data){
-                console.log(data);
-                if (data && data.length > 0) {
-                    const kontak = data[0];
-                    editnama.val(kontak.nama);
-                    editnohp.val(kontak.nohp);
-                    editemail.val(kontak.email);
-                    $('.idEdit').val(kontak._id);
-                    editgambar.attr('src', '/gambar/uploads/' + kontak.gambar);
-                    $('.gambarLama').val(kontak.gambar);
+                console.log(data.kelompok);
+                if (data) {
+                    editnama.val(data.nama);
+                    editnohp.val(data.nohp);
+                    editemail.val(data.email);
+                    $('.idEdit').val(data._id);
+                    editgambar.attr('src', '/gambar/uploads/' + data.gambar);
+                    $('.gambarLama').val(data.gambar);
+
+                    data.kelompok.forEach(kelompok => {
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.value = kelompok.id;
+                    checkbox.name = 'kelompok';
+                    checkbox.checked = kelompok.dimiliki; // Atur agar tercentang jika dimiliki
+
+                    const label = document.createElement('label');
+                    label.textContent = kelompok.nama;
+
+                    const div = document.createElement('div');
+                    div.append(checkbox);
+                    div.append(label);
+                    daftarKelompok.append(div);
+                });
                   } else {
                     console.log("Data tidak ditemukan.");
                   }
@@ -129,5 +148,25 @@ tombolHapus.forEach(tombol => {
   });
 });
 
+const linkSimpan = document.querySelector('a[href="/tambahKelompok"]');
+const namaKelompokInput = document.querySelector('.namaKelompok');
+
+if (linkSimpan && namaKelompokInput) {
+  namaKelompokInput.addEventListener('keyup', function() {
+    const hasil = namaKelompokInput.value;
+    console.log(hasil)
+    // linkSimpan.href = `/tambahKelompok/${encodeURIComponent(hasil)}`;
+  });
+}
+const linkSimpan2 = document.querySelector('a[href="/tambahKelompok2"]');
+const namaKelompokInput2 = document.querySelector('.namaKelompok2');
+
+if (linkSimpan2 && namaKelompokInput2) {
+  namaKelompokInput2.addEventListener('keyup', function() {
+    const hasil = namaKelompokInput2.value;
+    // console.log(hasil)
+    linkSimpan2.href = `/tambahKelompok/${encodeURIComponent(hasil)}`;
+  });
+}
 
 })

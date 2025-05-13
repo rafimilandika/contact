@@ -171,7 +171,7 @@ overflow-y: scroll;
 /* modal-------------------------------------- */
 .modal_tambah{
     width: 60%;
-    height: 50%;
+    height: fit-content;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -184,7 +184,7 @@ overflow-y: scroll;
 }
 .modal_edit{
     width: 60%;
-    height: 50%;
+    height: fit-content;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -309,6 +309,21 @@ overflow-y: scroll;
 ) label{
     font-weight: 800;
 }
+.daftar-kelompok {
+  margin-top: 10px;
+  display: grid; /* Menggunakan grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Atur kolom responsif dengan lebar minimal 150px */
+  gap: 10px; /* Berikan jarak antar item */
+}
+
+.daftar-kelompok div {
+  display: flex;
+  align-items: center;
+}
+
+.daftar-kelompok input[type="checkbox"] {
+  margin-right: 5px;
+}
 .simpan{
     width: 100%;
     padding: 10px 20px;
@@ -322,4 +337,47 @@ overflow-y: scroll;
     cursor: pointer;
     background-color: #8790E4;
     color: white;
+}
+.kelompok{
+    width: 100%;
+    height: 100px;
+    /* background-color: red; */
+    /* overflow : scroll; */
+}
+.tambahKelompok{
+    width: 100%;
+    height: 30%;
+    /* background-color: #8790E4; */
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+.tambahKelompok input{
+    height: 80%;
+    width: 90%;
+    border-radius: 20px;
+    padding-left: 20px;
+}
+.tambahKelompok a{
+    padding: 5px;
+    background-color: blue;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 20px;
+    color: white;
+}
+.areaKelompok,
+#daftar-kelompok{
+     width: 100%;
+    height: 100px;
+    /* background-color: red; */
+    overflow-y : scroll;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.areaKelompok .item{
+    height: 20px;
+    width: 0px;
+    background-color: transparent;
 }
